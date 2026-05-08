@@ -29,14 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $priorityOverrideUserId = (int) $user['id'];
         if ($overrideReason === '') {
             flash('error', 'Override reason is required when manually changing priority.');
-            header('Location: /escalation-system/requester/create_ticket.php');
+            header('Location: ' . url('/requester/create_ticket.php'));
             exit;
         }
     }
 
     if ($title === '' || $description === '' || !$categoryId || $affectedUserType === '') {
         flash('error', 'Please complete all required ticket fields.');
-        header('Location: /escalation-system/requester/create_ticket.php');
+        header('Location: ' . url('/requester/create_ticket.php'));
         exit;
     }
 
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     flash('success', 'Ticket created successfully.');
-    header('Location: /escalation-system/requester/ticket_view.php?id=' . $ticketId);
+    header('Location: ' . url('/requester/ticket_view.php?id=' . $ticketId));
     exit;
 }
 

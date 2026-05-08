@@ -8,6 +8,23 @@ function e(?string $value): string
     return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
 }
 
+function app_base_path(): string
+{
+    $configured = rtrim((string) getenv('APP_BASE_PATH'), '/');
+    if ($configured !== '') {
+        return $configured;
+    }
+
+    $scriptName = str_replace('\\', '/', $_SERVER['SCRIPT_NAME'] ?? '');
+    return str_contains($scriptName, '/escalation-system/') ? '/escalation-system' : '';
+}
+
+function url(string $path = ''): string
+{
+    $path = '/' . ltrim($path, '/');
+    return app_base_path() . ($path === '/' ? '' : $path);
+}
+
 function flash(string $key, ?string $message = null): ?string
 {
     if ($message !== null) {

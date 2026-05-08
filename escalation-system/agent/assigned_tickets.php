@@ -31,7 +31,7 @@ include __DIR__ . '/../includes/header.php';
                 <td><span class="badge <?= ticket_badge_class($ticket['current_status']) ?>"><?= e($ticket['current_status']) ?></span></td>
                 <td><?= e($ticket['assigned_agent_name'] ?? 'Queue') ?></td>
                 <td><?= e(get_sla_status($ticket)) ?></td>
-                <td><a class="button secondary" href="/escalation-system/agent/ticket_view.php?id=<?= (int) $ticket['id'] ?>">Manage</a></td>
+                <td><a class="button secondary" href="<?= e(url('/agent/ticket_view.php?id=' . (int) $ticket['id'])) ?>">Manage</a></td>
             </tr>
         <?php endforeach; ?>
         <?php if (!$tickets): ?>

@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'id' => (int) $_POST['id'],
     ]);
     flash('success', 'SLA rule updated.');
-    header('Location: /escalation-system/admin/sla_rules.php');
+    header('Location: ' . url('/admin/sla_rules.php'));
     exit;
 }
 

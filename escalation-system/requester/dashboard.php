@@ -19,8 +19,8 @@ include __DIR__ . '/../includes/header.php';
 
 <section class="panel">
     <div class="stat-strip">
-        <a class="button" href="/escalation-system/requester/create_ticket.php">Submit New Ticket</a>
-        <a class="button secondary" href="/escalation-system/requester/my_tickets.php">View Ticket List</a>
+        <a class="button" href="<?= e(url('/requester/create_ticket.php')) ?>">Submit New Ticket</a>
+        <a class="button secondary" href="<?= e(url('/requester/my_tickets.php')) ?>">View Ticket List</a>
     </div>
 </section>
 
@@ -44,7 +44,7 @@ include __DIR__ . '/../includes/header.php';
                 <td><span class="badge <?= ticket_badge_class($ticket['current_status']) ?>"><?= e($ticket['current_status']) ?></span></td>
                 <td><?= e(get_sla_status($ticket)) ?></td>
                 <td><?= e($ticket['assigned_agent_name'] ?? 'Queue') ?></td>
-                <td><a class="button secondary" href="/escalation-system/requester/ticket_view.php?id=<?= (int) $ticket['id'] ?>">Open</a></td>
+                <td><a class="button secondary" href="<?= e(url('/requester/ticket_view.php?id=' . (int) $ticket['id'])) ?>">Open</a></td>
             </tr>
         <?php endforeach; ?>
         <?php if (!$tickets): ?>

@@ -91,16 +91,16 @@ $escalations = fetch_escalation_history(getPDO(), (int) $ticket['id']);
     <section class="panel">
         <div class="stat-strip">
             <?php if ($user['role_code'] === 'ADMIN'): ?>
-                <a class="button" href="/escalation-system/tickets/assign_ticket.php?id=<?= (int) $ticket['id'] ?>">Assign / Reassign</a>
+                <a class="button" href="<?= e(url('/tickets/assign_ticket.php?id=' . (int) $ticket['id'])) ?>">Assign / Reassign</a>
             <?php endif; ?>
             <?php if (in_array($user['role_code'], ['LEVEL1', 'LEVEL2', 'LEVEL3', 'ADMIN'], true)): ?>
-                <a class="button secondary" href="/escalation-system/tickets/update_ticket.php?id=<?= (int) $ticket['id'] ?>">Add Update</a>
-                <a class="button secondary" href="/escalation-system/tickets/resolve_ticket.php?id=<?= (int) $ticket['id'] ?>">Resolve</a>
-                <a class="button secondary" href="/escalation-system/tickets/escalate_ticket.php?id=<?= (int) $ticket['id'] ?>">Escalate</a>
+                <a class="button secondary" href="<?= e(url('/tickets/update_ticket.php?id=' . (int) $ticket['id'])) ?>">Add Update</a>
+                <a class="button secondary" href="<?= e(url('/tickets/resolve_ticket.php?id=' . (int) $ticket['id'])) ?>">Resolve</a>
+                <a class="button secondary" href="<?= e(url('/tickets/escalate_ticket.php?id=' . (int) $ticket['id'])) ?>">Escalate</a>
             <?php endif; ?>
             <?php if ($user['role_code'] === 'REQUESTER' && $ticket['current_status'] === 'Resolved'): ?>
-                <a class="button secondary" href="/escalation-system/tickets/close_ticket.php?id=<?= (int) $ticket['id'] ?>">Confirm & Close</a>
-                <a class="button danger" href="/escalation-system/tickets/reopen_ticket.php?id=<?= (int) $ticket['id'] ?>">Reopen</a>
+                <a class="button secondary" href="<?= e(url('/tickets/close_ticket.php?id=' . (int) $ticket['id'])) ?>">Confirm & Close</a>
+                <a class="button danger" href="<?= e(url('/tickets/reopen_ticket.php?id=' . (int) $ticket['id'])) ?>">Reopen</a>
             <?php endif; ?>
         </div>
     </section>

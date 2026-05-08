@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'created_at' => now(),
     ]);
     flash('success', 'Team created.');
-    header('Location: /escalation-system/admin/teams.php');
+    header('Location: ' . url('/admin/teams.php'));
     exit;
 }
 

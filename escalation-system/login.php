@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     flash('error', 'Invalid credentials provided.');
-    header('Location: /escalation-system/login.php');
+    header('Location: ' . url('/login.php'));
     exit;
 }
 

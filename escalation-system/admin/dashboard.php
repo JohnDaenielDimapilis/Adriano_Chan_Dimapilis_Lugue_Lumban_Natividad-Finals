@@ -56,7 +56,7 @@ include __DIR__ . '/../includes/header.php';
                 <td><span class="priority-badge <?= priority_badge_class($ticket['priority_code']) ?>"><?= e($ticket['priority_name']) ?></span></td>
                 <td><span class="badge <?= ticket_badge_class($ticket['current_status']) ?>"><?= e($ticket['current_status']) ?></span></td>
                 <td><?= e($ticket['support_level_name']) ?></td>
-                <td><a class="button secondary" href="/escalation-system/tickets/ticket_view.php?id=<?= (int) $ticket['id'] ?>">View</a></td>
+                <td><a class="button secondary" href="<?= e(url('/tickets/ticket_view.php?id=' . (int) $ticket['id'])) ?>">View</a></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

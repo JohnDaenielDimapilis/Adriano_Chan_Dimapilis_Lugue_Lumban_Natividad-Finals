@@ -13,20 +13,20 @@ $roleCode = $authUser['role_code'] ?? '';
     </div>
     <nav>
         <?php if ($roleCode === 'ADMIN'): ?>
-            <a href="/escalation-system/admin/dashboard.php">Dashboard</a>
-            <a href="/escalation-system/admin/users.php">Users</a>
-            <a href="/escalation-system/admin/agents.php">Agents</a>
-            <a href="/escalation-system/admin/teams.php">Teams</a>
-            <a href="/escalation-system/admin/sla_rules.php">SLA Rules</a>
-            <a href="/escalation-system/admin/reports.php">Reports</a>
+            <a href="<?= e(url('/admin/dashboard.php')) ?>">Dashboard</a>
+            <a href="<?= e(url('/admin/users.php')) ?>">Users</a>
+            <a href="<?= e(url('/admin/agents.php')) ?>">Agents</a>
+            <a href="<?= e(url('/admin/teams.php')) ?>">Teams</a>
+            <a href="<?= e(url('/admin/sla_rules.php')) ?>">SLA Rules</a>
+            <a href="<?= e(url('/admin/reports.php')) ?>">Reports</a>
         <?php elseif ($roleCode === 'REQUESTER'): ?>
-            <a href="/escalation-system/requester/dashboard.php">Dashboard</a>
-            <a href="/escalation-system/requester/create_ticket.php">Create Ticket</a>
-            <a href="/escalation-system/requester/my_tickets.php">My Tickets</a>
+            <a href="<?= e(url('/requester/dashboard.php')) ?>">Dashboard</a>
+            <a href="<?= e(url('/requester/create_ticket.php')) ?>">Create Ticket</a>
+            <a href="<?= e(url('/requester/my_tickets.php')) ?>">My Tickets</a>
         <?php else: ?>
-            <a href="/escalation-system/agent/dashboard.php">Dashboard</a>
-            <a href="/escalation-system/agent/assigned_tickets.php">Assigned Tickets</a>
+            <a href="<?= e(url('/agent/dashboard.php')) ?>">Dashboard</a>
+            <a href="<?= e(url('/agent/assigned_tickets.php')) ?>">Assigned Tickets</a>
         <?php endif; ?>
-        <a href="/escalation-system/logout.php">Logout</a>
+        <a href="<?= e(url('/logout.php')) ?>">Logout</a>
     </nav>
 </aside>

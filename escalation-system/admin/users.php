@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'created_at' => now(),
     ]);
     flash('success', 'User added successfully.');
-    header('Location: /escalation-system/admin/users.php');
+    header('Location: ' . url('/admin/users.php'));
     exit;
 }
 

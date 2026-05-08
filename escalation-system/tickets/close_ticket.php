@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     audit_log($pdo, (int) $user['id'], 'TICKET_CLOSED', (int) $ticket['id'], 'Resolved', 'Closed');
     create_notification($pdo, (int) $ticket['requester_id'], (int) $ticket['id'], 'Ticket closed', "{$ticket['ticket_number']} has been formally closed.", 'ticket_closed');
     flash('success', 'Ticket closed.');
-    $target = $user['role_code'] === 'REQUESTER' ? '/escalation-system/requester/ticket_view.php?id=' : '/escalation-system/tickets/ticket_view.php?id=';
+    $target = $user['role_code'] === 'REQUESTER' ? url('/requester/ticket_view.php?id=') : url('/tickets/ticket_view.php?id=');
     header('Location: ' . $target . (int) $ticket['id']);
     exit;
 }

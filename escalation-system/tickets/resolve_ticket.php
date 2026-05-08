@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($rootCause === '' || $actionTaken === '' || $solutionApplied === '' || $resolutionNotes === '') {
         flash('error', 'All resolution log fields are required.');
-        header('Location: /escalation-system/tickets/resolve_ticket.php?id=' . (int) $ticket['id']);
+        header('Location: ' . url('/tickets/resolve_ticket.php?id=' . (int) $ticket['id']));
         exit;
     }
 
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     create_notification($pdo, (int) $ticket['requester_id'], (int) $ticket['id'], 'Ticket resolved', "{$ticket['ticket_number']} has been resolved and is waiting for your confirmation.", 'ticket_resolved');
 
     flash('success', 'Ticket resolved and resolution log saved.');
-    header('Location: /escalation-system/agent/ticket_view.php?id=' . (int) $ticket['id']);
+    header('Location: ' . url('/agent/ticket_view.php?id=' . (int) $ticket['id']));
     exit;
 }
 

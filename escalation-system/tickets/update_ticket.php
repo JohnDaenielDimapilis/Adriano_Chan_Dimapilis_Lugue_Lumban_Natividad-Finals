@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['current_status'] ?? $ticket['current_status'];
     if ($message === '') {
         flash('error', 'Update notes are required.');
-        header('Location: /escalation-system/tickets/update_ticket.php?id=' . (int) $ticket['id']);
+        header('Location: ' . url('/tickets/update_ticket.php?id=' . (int) $ticket['id']));
         exit;
     }
 
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     create_notification($pdo, (int) $ticket['requester_id'], (int) $ticket['id'], 'Ticket updated', "{$ticket['ticket_number']} has a new progress update.", 'ticket_updated');
 
     flash('success', 'Ticket updated.');
-    header('Location: /escalation-system/agent/ticket_view.php?id=' . (int) $ticket['id']);
+    header('Location: ' . url('/agent/ticket_view.php?id=' . (int) $ticket['id']));
     exit;
 }
 

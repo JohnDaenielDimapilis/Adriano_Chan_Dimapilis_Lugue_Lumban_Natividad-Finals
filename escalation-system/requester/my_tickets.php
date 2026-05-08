@@ -31,7 +31,7 @@ include __DIR__ . '/../includes/header.php';
                 <td><span class="badge <?= ticket_badge_class($ticket['current_status']) ?>"><?= e($ticket['current_status']) ?></span></td>
                 <td><?= e($ticket['support_level_name']) ?></td>
                 <td><?= e($ticket['assigned_agent_name'] ?? 'Queue') ?></td>
-                <td><a class="button secondary" href="/escalation-system/requester/ticket_view.php?id=<?= (int) $ticket['id'] ?>">View</a></td>
+                <td><a class="button secondary" href="<?= e(url('/requester/ticket_view.php?id=' . (int) $ticket['id'])) ?>">View</a></td>
             </tr>
         <?php endforeach; ?>
         <?php if (!$tickets): ?>

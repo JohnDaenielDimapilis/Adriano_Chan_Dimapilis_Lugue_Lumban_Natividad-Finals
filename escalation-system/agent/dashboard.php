@@ -38,7 +38,7 @@ include __DIR__ . '/../includes/header.php';
                 <td><span class="priority-badge <?= priority_badge_class($ticket['priority_code']) ?>"><?= e($ticket['priority_name']) ?></span></td>
                 <td><span class="badge <?= ticket_badge_class($ticket['current_status']) ?>"><?= e($ticket['current_status']) ?></span></td>
                 <td><?= e(get_sla_status($ticket)) ?></td>
-                <td><a class="button secondary" href="/escalation-system/agent/ticket_view.php?id=<?= (int) $ticket['id'] ?>">Open</a></td>
+                <td><a class="button secondary" href="<?= e(url('/agent/ticket_view.php?id=' . (int) $ticket['id'])) ?>">Open</a></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

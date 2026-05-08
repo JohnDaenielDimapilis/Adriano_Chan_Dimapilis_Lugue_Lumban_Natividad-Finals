@@ -80,7 +80,7 @@ function require_login(): array
 {
     $user = current_user();
     if (!$user) {
-        header('Location: /escalation-system/login.php');
+        header('Location: ' . url('/login.php'));
         exit;
     }
 
@@ -103,8 +103,8 @@ function require_role(array|string $roles): array
 function dashboard_for_role(string $roleCode): string
 {
     return match ($roleCode) {
-        'ADMIN' => '/escalation-system/admin/dashboard.php',
-        'REQUESTER' => '/escalation-system/requester/dashboard.php',
-        default => '/escalation-system/agent/dashboard.php',
+        'ADMIN' => url('/admin/dashboard.php'),
+        'REQUESTER' => url('/requester/dashboard.php'),
+        default => url('/agent/dashboard.php'),
     };
 }

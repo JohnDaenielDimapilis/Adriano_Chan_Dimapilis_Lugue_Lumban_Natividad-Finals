@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'updated_at' => now(),
     ]);
     flash('success', 'Agent profile saved.');
-    header('Location: /escalation-system/admin/agents.php');
+    header('Location: ' . url('/admin/agents.php'));
     exit;
 }
 

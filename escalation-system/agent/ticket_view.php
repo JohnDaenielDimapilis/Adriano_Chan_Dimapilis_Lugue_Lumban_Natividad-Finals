@@ -18,9 +18,9 @@ include __DIR__ . '/../includes/header.php';
 <?php include __DIR__ . '/../tickets/ticket_view.php'; ?>
 <section class="panel">
     <div class="stat-strip">
-        <a class="button" href="/escalation-system/tickets/update_ticket.php?id=<?= (int) $ticket['id'] ?>">Add Update</a>
-        <a class="button secondary" href="/escalation-system/tickets/resolve_ticket.php?id=<?= (int) $ticket['id'] ?>">Resolve</a>
-        <a class="button secondary" href="/escalation-system/tickets/escalate_ticket.php?id=<?= (int) $ticket['id'] ?>">Escalate</a>
+        <a class="button" href="<?= e(url('/tickets/update_ticket.php?id=' . (int) $ticket['id'])) ?>">Add Update</a>
+        <a class="button secondary" href="<?= e(url('/tickets/resolve_ticket.php?id=' . (int) $ticket['id'])) ?>">Resolve</a>
+        <a class="button secondary" href="<?= e(url('/tickets/escalate_ticket.php?id=' . (int) $ticket['id'])) ?>">Escalate</a>
     </div>
 </section>
 <?php include __DIR__ . '/../includes/footer.php'; ?>

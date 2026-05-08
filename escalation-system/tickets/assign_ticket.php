@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         create_notification($pdo, $agentId, (int) $ticket['id'], 'Ticket assigned', "{$ticket['ticket_number']} has been assigned to you.", 'ticket_assigned');
     }
     flash('success', 'Ticket assignment updated.');
-    header('Location: /escalation-system/tickets/ticket_view.php?id=' . (int) $ticket['id']);
+    header('Location: ' . url('/tickets/ticket_view.php?id=' . (int) $ticket['id']));
     exit;
 }
 

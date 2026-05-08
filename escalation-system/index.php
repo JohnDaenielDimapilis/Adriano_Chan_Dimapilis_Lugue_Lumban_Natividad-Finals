@@ -5,7 +5,7 @@ require_once __DIR__ . '/config/auth.php';
 $user = current_user();
 
 if (!$user) {
-    header('Location: /escalation-system/login.php');
+    header('Location: ' . url('/login.php'));
     exit;
 }
 

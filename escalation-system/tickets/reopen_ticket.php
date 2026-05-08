@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         create_notification($pdo, (int) $ticket['assigned_agent_id'], (int) $ticket['id'], 'Ticket reopened', "{$ticket['ticket_number']} has been reopened.", 'ticket_reopened');
     }
     flash('success', 'Ticket reopened.');
-    header('Location: /escalation-system/requester/ticket_view.php?id=' . (int) $ticket['id']);
+    header('Location: ' . url('/requester/ticket_view.php?id=' . (int) $ticket['id']));
     exit;
 }
 
